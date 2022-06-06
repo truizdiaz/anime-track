@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Anime } from 'src/app/interfaces/api-movies';
+import { AnimeService } from 'src/app/services/anime.service';
 
 @Component({
   selector: 'app-result-anime',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-anime.component.css']
 })
 export class ResultAnimeComponent implements OnInit {
+  anime_results: Anime[] = [];
 
-  constructor() { }
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit(): void {
+    this.animeService.getResultAnime().subscribe(result => {
+      this.anime_results = result
+      console.log(this.anime_results)
+    })
   }
 
 }
