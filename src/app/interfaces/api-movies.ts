@@ -3,6 +3,14 @@ export interface APIAnime {
   data: Anime[];
 }
 
+export interface MyAnime {
+  id: number,
+  title: string,
+  imagen: string,
+  total_episodes: number | null,
+  watched_episodes: number
+}
+
 export interface Anime {
   mal_id: number;
   url: string;

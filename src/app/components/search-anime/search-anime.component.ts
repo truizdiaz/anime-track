@@ -16,7 +16,8 @@ export class SearchAnimeComponent implements OnInit {
 
   search() {
     this.animeService.getAnimes(this.searchTerm).subscribe(result => {
-      this.animeService.addResultAnime(result.data)
+      this.animeService.addResultAnime(result.data);
+      this.searchTerm = '';
     })
   }
 
